@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Kontak{% endblock %}
+
+{% block content %}
+<section class="page-section mt-5">
+    <div class="container pt-5">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Hubungi Saya</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+
+                <!-- Pesan dari flash() di app.py -->
+                {% with pesan_flash = get_flashed_messages(with_categories=true) %}
+                    {% for kategori, pesan in pesan_flash %}
+                    <div class="alert alert-{{ kategori }}" role="alert">{{ pesan }}</div>
+                    {% endfor %}
+                {% endwith %}
+
+                <!-- method="post" -> diproses oleh route /kontak (request.form) -->
+                <form method="post" action="{{ url_for('kontak') }}">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nama" name="nama" type="text" placeholder="Nama" required />
+                        <label for="nama">Nama lengkap</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" name="email" type="email" placeholder="nama@contoh.com" required />
+                        <label for="email">Alamat email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="pesan" name="pesan" placeholder="Pesan" style="height: 10rem" required></textarea>
+                        <label for="pesan">Pesan</label>
+                    </div>
+                    <button class="btn btn-primary btn-xl" type="submit">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

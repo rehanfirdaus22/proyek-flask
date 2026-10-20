@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Tentang{% endblock %}
+
+{% block content %}
+<section class="page-section bg-primary text-white mb-0 mt-5">
+    <div class="container pt-5">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Tentang Saya</h2>
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ms-auto">
+                <p class="lead">Halo, saya {{ profil.nama }}, {{ profil.peran|lower }}. Website ini dibuat untuk tugas mata kuliah Pengembangan Sistem Berbasis Web.</p>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <p class="lead">asdasd</p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a class="btn btn-xl btn-outline-light" href="{{ url_for('kontak') }}">
+                <i class="fas fa-envelope me-2"></i>Hubungi Saya
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

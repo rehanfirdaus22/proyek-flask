@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Halaman tidak ditemukan{% endblock %}
+
+{% block content %}
+<section class="page-section mt-5">
+    <div class="container pt-5 text-center">
+        <h2 class="page-section-heading text-uppercase text-secondary">404</h2>
+        <p class="lead">Halaman yang kamu cari tidak ditemukan.</p>
+        <a class="btn btn-primary" href="{{ url_for('index') }}">Kembali ke Beranda</a>
+    </div>
+</section>
+{% endblock %}
